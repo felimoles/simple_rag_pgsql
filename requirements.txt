@@ -1,0 +1,15 @@
+langchain
+python-dotenv
+Langchain_community
+bs4
+pymupdf
+langchain-text-splitters
+langchain-openai
+chromadb
+sentence-transformers
+langchain_chroma
+streamlit
+fastapi
+langserve
+sqlalchemy
+psycopg2

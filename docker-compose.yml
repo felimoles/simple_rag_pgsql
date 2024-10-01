@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+    app_py:
+      build: ./
+      command: streamlit run app/app.py --server.enableCORS false --browser.serverAddress app.udec.cl --server.sslKeyFile certs/udec.key --server.sslCertFile certs/udec.crt
+      restart: always
+      image: app_py
+      ports:
+        - 8501:8501
+      labels:
+        - traefik.enable=true
+        - traefik.http.services.streamlit.loadbalancer.server.port=80
+        - traefik.http.routers.streamlit-http.entrypoints=http
+        - traefik.http.routers.streamlit-http.rule=Host(`streamlit.localhost`)
+        - traefik.docker.network=traefik-public
+        - traefik.http.routers.streamlit-http.middlewares=admin-auth
+networks:
+    default:
+        name: traefik_network
+        external: true
