@@ -1,6 +1,6 @@
-#Simple RAG implementation for PGSQL and OpenAI
+# Simple RAG implementation for PGSQL and OpenAI
 
-##How use:
+## How use:
 
 *need install Docker*
 
